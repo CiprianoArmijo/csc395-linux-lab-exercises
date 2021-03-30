@@ -7,6 +7,6 @@ all:
     ansible-lab:
       hosts:
         ansible-lab-controller:
-          ansible_host:10.1.1.4
+          ansible_host: 10.1.1.4
         
       #ansible_python_interpreter: /usr/bin/python3
