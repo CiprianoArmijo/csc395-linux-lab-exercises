@@ -6,7 +6,6 @@
     become: yes
     ansible.builtin.package:
       name: 
-      - ubuntu
       - ansible
       - git
       state: latest
