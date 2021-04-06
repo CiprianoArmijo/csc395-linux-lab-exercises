@@ -27,9 +27,9 @@
     amsible_become: true
   tasks:
   - name: Install dnsmasq
-  ansible.builtin.package:
-    name: dnsmasq
-    state: latest
+    ansible.builtin.package:
+      name: dnsmasq
+      state: latest
   - name: Set local hostname
     ansible.builtin.lineinfile:
       path: /etc/hosts
