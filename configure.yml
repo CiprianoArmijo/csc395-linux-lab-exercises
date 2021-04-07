@@ -1,5 +1,6 @@
 ---
 - name: Configure Ansible Controller
+  become: yes
   hosts: ansible-lab-controller
   tasks:
   - name: Ensure latest Ansible versions
