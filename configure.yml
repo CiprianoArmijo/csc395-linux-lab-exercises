@@ -12,7 +12,9 @@
       state: latest
 
 - name: Universal host configuration
+  become: yes
   hosts: ansible_lab_hosts
+  tags: hardening
   vars:
     ansible_become: true
   roles:
@@ -23,6 +25,7 @@
       security_password_max_lifetime_days: 90
 
 - name: Configure DNS server
+  become: yes
   hosts: ansible-lab-host1
   vars:
     amsible_become: true
