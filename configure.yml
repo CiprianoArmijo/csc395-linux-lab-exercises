@@ -33,6 +33,7 @@
       state: latest
     notify: Restart dnsmasq
   - name: Set local hostname
+    become: yes
     ansible.builtin.lineinfile:
       path: /etc/hosts
       regexp: '127.0.0.1 localhost {{ansible_hostname }}'
