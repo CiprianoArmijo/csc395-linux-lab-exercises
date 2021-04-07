@@ -48,7 +48,7 @@
       name: systemd-resolved.service
       enabled: no
       state: stopped
-  - name: Set dnspasq configuration file
+  - name: Set dnsmasq configuration file
     ansible.builtin.copy:
       src: files/dnsmasq.conf
       dest: /etc/dnsmasq.conf
