@@ -41,7 +41,7 @@
     notify: Restart dnsmasq
   - name: Disable existing DNS
     ansible.builtin.service:
-      name: system-resolved
+      name: systemd-resolved.service
       enabled: no
       state: stopped
   - name: Set dnspasq configuration file
