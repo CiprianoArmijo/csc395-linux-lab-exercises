@@ -39,19 +39,18 @@
     become: yes
     ansible.builtin.lineinfile:
       path: /etc/hosts
-      #regexp: '127.0.0.1 localhost {{ansible_hostname }}'
       regexp: '^10\.1\.2\.4'
-      line: '10.1.2.4 DNS Host 1'
+      line: '10.1.2.4 DNS Server 1'
   - name: Add Host2
     lineinfile:
       path: /etc/hosts
       regexp: '^10\.1\.2\.5'
-      line: '10.1.2.5 ansible-lab-host2'
+      line: '10.1.2.5 Server 2'
   - name: Add Host3
     lineinfile:
       path: /etc/hosts
       regexp: '^10\.1\.2\.6'
-      line: '10.1.2.6 ansible-lab-host3'
+      line: '10.1.2.6 Server 3'
   - name: Add Controller
     lineinfile:
       path: /etc/hosts
