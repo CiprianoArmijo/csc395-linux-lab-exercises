@@ -41,7 +41,7 @@
       path: /etc/hosts
       #regexp: '127.0.0.1 localhost {{ansible_hostname }}'
       regexp: '^10\.1\.2\.4'
-      line: '10.1.2.4 {{ ansible_hostname }}'
+      line: '10.1.2.4 {{ DNS Host 1 }}'
   - name: Add Host2
     lineinfile:
       path: /etc/hosts
