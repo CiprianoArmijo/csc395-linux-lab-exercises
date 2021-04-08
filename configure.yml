@@ -35,9 +35,8 @@
       name: dnsmasq
       state: latest
     notify: Restart dnsmasq
-  - name: Set local hostname
-    become: yes
-    ansible.builtin.lineinfile:
+  - name: Add Host1
+    lineinfile:
       path: /etc/hosts
       regexp: '^10\.1\.2\.4'
       line: '10.1.2.4 DNS Server 1'
