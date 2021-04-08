@@ -56,7 +56,7 @@
     lineinfile:
       path: /etc/hosts
       regexp: '^10\.1\.1\.4'
-      line: '10.1.1.4 ansible-lab-controller'
+      line: '10.1.1.4 Controller'
     notify: Restart dnsmasq
   - name: Disable existing DNS
     become: yes
