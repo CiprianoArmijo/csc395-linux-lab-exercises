@@ -88,3 +88,10 @@
       path: /etc/resolv.conf
       regexp: '^nameserver'
       line: 'nameserver 10.1.2.4'
+
+- name: Configure Samba server
+  hosts: ansible-lab-host2
+  vars: 
+    ansible_become: true
+  roles:
+    - bertvv.samba
