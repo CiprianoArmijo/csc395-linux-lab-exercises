@@ -11,75 +11,46 @@
       - git
       state: latest
 
-# - name: Universal host configuration
-#   become: yes
-#   hosts: ansible_lab_hosts
-#   tags: hardening
-#   vars:
-#     ansible_become: true
-#   roles:
-#   - role: ansible-hardening
-#     vars:
-#       stig_version: rhel7
-#       security_enable_pwquality_password_set: yes
-#       security_password_max_lifetime_days: 90
+- name: Universal host configuration
+  hosts: lab_hosts
+  vars:
+    ansible_become: true
+  roles:
+  - role: ansible-hardening
+    vars:
+      stig_version: rhel7
+      security_enable_pwquality_password_set: yes
+      security_password_max_lifetime_days: 90
+    tags: hardening
+  tasks:
+  - name: Add local hostname
+    lineinfile:
+      dest: /etc/hosts
+      regexp: '.*{{ansible_hostname}}$'
+      line: "{{ansible_host}} {{ansible_hostname}}"
+      state: present
+    when: ansible_host is defined
 
 - name: Configure DNS server
-  become: yes
   hosts: ansible-lab-host1
   vars:
-    amsible_become: true
+    ansible_become: true
+  roles:
+  - role: bertvv.dnsmasq
   tasks:
-  - name: Install dnsmasq
-    ansible.builtin.package:
-      name: dnsmasq
-      state: latest
-    notify: Restart dnsmasq
-  - name: Add Host1
+  - name: Add all hosts to hostfile
     lineinfile:
-      path: /etc/hosts
-      regexp: '^10\.1\.2\.4'
-      line: '10.1.2.4 DNS Server 1'
-  - name: Add Host2
-    lineinfile:
-      path: /etc/hosts
-      regexp: '^10\.1\.2\.5'
-      line: '10.1.2.5 Server 2'
-  - name: Add Host3
-    lineinfile:
-      path: /etc/hosts
-      regexp: '^10\.1\.2\.6'
-      line: '10.1.2.6 Server 3'
-  - name: Add Controller
-    lineinfile:
-      path: /etc/hosts
-      regexp: '^10\.1\.1\.4'
-      line: '10.1.1.4 Controller'
-    notify: Restart dnsmasq
-  - name: Disable existing DNS
-    become: yes
-    ansible.builtin.service:
-      name: systemd-resolved.service
-      enabled: no
-      state: stopped
-  - name: Set dnsmasq configuration file
-    ansible.builtin.copy:
-      src: files/dnsmasq.conf
-      dest: /etc/dnsmasq.conf
-      owner: root
-      group: root
-      mode: '0644'
-    notify: Restart dnsmasq
-
-  handlers:
-  - name: Restart dnsmasq
-    ansible.builtin.service:
-      name: dnsmasq
-      enabled: yes
-      state: restarted
+      dest: /etc/hosts
+      regexp: '.*{{ item }}$'
+      line: "{{ hostvars[item].ansible_host }} {{item}}"
+      state: present
+    when: hostvars[item].ansible_host is defined
+    with_items: "{{ groups['ansible_vms'] }}"
   
 - name: Configure hosts to use local DNS
-  hosts: ansible_vms
+  hosts:
+  - ansible-lab-host2
+  - ansible-lab-host3
   vars:
     ansible_become: true
   tasks:
