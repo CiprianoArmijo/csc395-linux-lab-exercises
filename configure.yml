@@ -1,5 +1,6 @@
 ---
 - name: Configure Ansible Controller
+  become: yes
   hosts: ansible-lab-controller
   tasks:
   - name: Ensure latest Ansible versions
@@ -14,13 +15,13 @@
   hosts: lab_hosts
   vars:
     ansible_become: true
-  roles:
-  - role: ansible-hardening
-    vars:
-      stig_version: rhel7
-      security_enable_pwquality_password_set: yes
-      security_password_max_lifetime_days: 90
-    tags: hardening
+  #roles:
+  #- role: ansible-hardening
+   # vars:
+   #   stig_version: rhel7
+   #   security_enable_pwquality_password_set: yes
+   #   security_password_max_lifetime_days: 90
+   # tags: hardening
   tasks:
   - name: Add local hostname
     lineinfile:
