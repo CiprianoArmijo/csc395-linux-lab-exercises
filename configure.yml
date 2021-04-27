@@ -38,6 +38,13 @@
   roles:
   - role: bertvv.dnsmasq
   tasks:
+  - name: Set no-resolv 
+    lineinfile:
+      path: /etc/dnsmasq.conf
+      regexp: '^no-resolv'
+      line: 'no-resolv'
+      state: present
+    notify: Restart dnsmasq
   - name: Add all hosts to hostfile
     lineinfile:
       dest: /etc/hosts
@@ -46,6 +53,11 @@
       state: present
     when: hostvars[item].ansible_host is defined
     with_items: "{{ groups['ansible_vms'] }}"
+  handler:
+  - name: Restart dnsmasq
+    service: 
+      name: dnsmasq
+      state: restarted
   
 - name: Configure hosts to use local DNS
   hosts:
