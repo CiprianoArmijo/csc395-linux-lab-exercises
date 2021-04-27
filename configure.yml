@@ -38,9 +38,15 @@
   roles:
   - role: bertvv.dnsmasq
   tasks:
+  - name: Create no-resolv conf file
+    file:
+      path: /etc/dnsmasq.d/no-resolv.conf
+      owner: root
+      group: root
+      mode: '0644'
   - name: Set no-resolv 
     lineinfile:
-      path: /etc/dnsmasq.conf
+      path: /etc/dnsmasq.d/no-resolv.conf
       regexp: '^no-resolv'
       line: 'no-resolv'
       state: present
