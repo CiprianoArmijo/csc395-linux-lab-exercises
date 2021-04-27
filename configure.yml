@@ -59,7 +59,7 @@
       line: "{{ hostvars[item].ansible_host }} {{item}}"
       state: present
     when: hostvars[item].ansible_host is defined
-    with_items: "{{ groups['ansible_vms'] }}"
+    with_items: "{{ groups['azure_lab'] }}"
   handlers:
   - name: Restart dnsmasq
     service: 
