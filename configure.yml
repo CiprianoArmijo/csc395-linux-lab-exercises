@@ -53,7 +53,7 @@
       state: present
     when: hostvars[item].ansible_host is defined
     with_items: "{{ groups['ansible_vms'] }}"
-  handler:
+  handlers:
   - name: Restart dnsmasq
     service: 
       name: dnsmasq
