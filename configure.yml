@@ -105,12 +105,12 @@
   - name: Add share mount
     mount:
       src: //10.1.2.5/srv/samba
-      path: /mnt/smbshare
+      path: /mnt/
       fstype: cifs
       opts: credentials=/home/{{ admin_un }}/.smbpasswd
       state: mounted
   - name: Set mount as writeable
     file: 
-      path: /mnt/smbshare
+      path: /mnt/
       state: directory
       mode: '0777'  
