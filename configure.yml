@@ -89,7 +89,7 @@
 - name: Configure Samba client
   hosts: ansible-lab-host3
   vars:
-    ansible_become: True
+    ansible_become: true
   tasks:
   - name: Install Client depends
     package:
