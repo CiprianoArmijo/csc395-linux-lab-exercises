@@ -1,6 +1,6 @@
 ---
 admin_samba_pw: '{{ vault_admin_samba_pw }}'
-admin_un: 'Cipriani'
+admin_un: Cipriani
 
 samba_server_string: 'Samba Ansible File Server'
 samba_workgroup: CiprianoAndJack
