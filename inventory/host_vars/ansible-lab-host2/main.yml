@@ -6,7 +6,7 @@ samba_server_string: 'Samba Ansible File Server'
 samba_workgroup: CiprianoAndJack
 samba_users:
 - name: '{{ admin_un }}'
-  password: '{{ admin_pw }}'
+  password: '{{ admin_samba_pw }}'
 samba_shares_root: /srv/samba
 samba_shares:
 - name: sambashare
