@@ -138,12 +138,12 @@
       group: root
       mode: '0644'
 
-- name: Install OpenVPN
+- name: Create OpenVPN
   hosts: ansible-lab-controller
   gather_facts: true
   vars:
-    ansible_become: true
+    become: true
     openvpn_server_hostname: 40.112.169.56
   roles:
-    - role: ansible-role-openvpn
-      clients: client1
+  - role: ansible-role-openvpn
+    clients: client1
