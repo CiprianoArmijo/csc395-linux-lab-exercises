@@ -114,3 +114,36 @@
       path: /mnt/smbshare
       state: directory
       mode: '0777'  
+
+- name: Installing nginx for website
+  become: true
+  hosts: ansible-lab-host3
+  tasks:
+    - name: Installing nginx
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
+
+- name: Custom Website
+  hosts: ansible-lab-host3
+  tasks:
+  - name:  Custom Website
+    become: true
+    ansible.builtin.copy:
+      src: files/index.nginx-debian.html
+      dest: /var/www/html/index.nginx-debian.html
+      owner: root
+      group: root
+      mode: '0644'
+
+- name: Install OpenVPN
+  hosts: ansible-lab-controller
+  gather_facts: true
+  vars:
+    ansible_become: true
+    openvpn_server_hostname: 40.112.169.56
+  roles:
+    - role: ansible-role-openvpn
+      clients: client1
