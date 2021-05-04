@@ -146,5 +146,4 @@
     openvpn_server_hostname: 40.112.169.56
   roles:
   - role: kyl191.openvpn
-      clients:
     clients: client1
