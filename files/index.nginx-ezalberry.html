@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<title>Group2 Term Not Recognized</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="Styles.css" rel="stylesheet" type="text/css">
+<style>
+    body {
+        font-family: "Times New Roman", Georgia, Serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+    }
+</style>
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="ezalberry-top">
+        <div class="ezalberry-bar ezalberry-white ezalberry-padding ezalberry-card" style="letter-spacing:4px;">
+            <a href="#giveaway" class="ezalberry-bar-item ezalberry-button">Ezalberry Crochet Cat or Dog Clothes Giveaway!</a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+            <div class="ezalberry-right ezalberry-hide-small">
+                <a href="#home" class="ezalberry-bar-item ezalberry-button">Home</a>
+                <a href="#about" class="ezalberry-bar-item ezalberry-button">About</a>
+                <a href="#store" class="ezalberry-bar-item ezalberry-button">Store</a>
+                <a href="#contact" class="ezalberry-bar-item ezalberry-button">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="ezalberry-display-container ezalberry-content ezalberry-wide" style="max-width:1600px;min-width:500px" id="home">
+        <img class="ezalberry-image" src="/Resources/Horizontal.jpg" alt="Hamburger Catering" width="1600" height="800">
+        <div class="ezalberry-display-bottomleft ezalberry-padding-large ezalberry-opacity">
+            <h1 class="ezalberry-xxlarge" style="color:antiquewhite"><b>Ezalberry Crochet<b/></h1>
+        </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="ezalberry-content" style="max-width:1100px">
+
+        <!-- Giveaway Section -->
+        <div class="ezalberry-container ezalberry-padding-64" id="giveaway">
+            <h1>Ezalberry Crochet Cat or Dog Clothes Giveaway!</h1><br>
+            <p>To kick off our store opening I am giving away <span class="ezalberry-tag ezalberry-light-grey">five</span> dog or cat clothes</p>
+            <div class="w3-col l6 w3-padding-large">
+                <img src="/Resources/Luna1.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:25%">
+                <img src="/Resources/Luna2.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:25%">
+                <img src="/Resources/DogClothesFront.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:14.25%">
+                <img src="/Resources/DogClothesBack1.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:15%">
+            </div>
+            <form action="azure_insert.php" method="post">
+                <p>
+
+                <p>
+                    <label for="fname">First Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" name="fname" id="fname">
+
+                    <label for="lname">&nbsp;&nbsp;&nbsp;Last Name:&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" name="lname" id="lname">
+                </p>
+
+                <p>
+                    <label for="email">E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="email" name="email" id="Email">
+                </p>
+
+                <p>
+                    <label for="address">Home Address:</label>
+                    <input type="text" name="address" id="Address">
+                </p>
+
+                <!--<table>
+            <tr>
+            <th>City:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+            <th>State:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+            <th>Zipcode:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </th>
+            </tr>
+        </table>
+        -->
+
+                <label for="city">City:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                <input type="text" name="city" id="City">
+
+                <label for="state">&nbsp&nbsp&nbsp&nbspState:&nbsp&nbsp</label>
+                <input type="text" name="state" id="State">
+
+                <label for="zipcode">&nbsp&nbsp&nbspZipcode:&nbsp&nbsp</label>
+                <input type="text" name="zipcode" id="Zipcode">
+
+                <p>
+                    <label for="telephone">Cell Phone:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                    <input type="text" name="telephone" id="telephone">
+                </p>
+
+                <p>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" value="Submit Giveaway Entry" name="submit">
+                    <input type="reset">
+                </p>
+
+                <p class="ezalberry-text-blue-grey ezalberry-large"><b>Ezalberry Crochet, Tacoma, WA</b></p>
+            </form>
+        </div>
+
+        <!-- About Section -->
+        <div class="ezalberry-row ezalberry-padding-64" id="about">
+            <div class="ezalberry-col m6 ezalberry-padding-large ezalberry-hide-small">
+                <img src="/Resources/Yoda.jpg" class="ezalberry-round ezalberry-image ezalberry-opacity-min" alt="Table Setting" width="600" height="750">
+            </div>
+
+            <div class="ezalberry-col m6 ezalberry-padding-large">
+                <h1 class="ezalberry-center">About Ezalberry</h1><br>
+                <h5 class="ezalberry-center">Passion for Creative Crocheting</h5>
+                <p class="ezalberry-large">I began croching early in my life finding a passion for the creative designs I could bring to life. I found store bought dog clothes do not fit my dog too well and decided to make my own.<span class="ezalberry-tag ezalberry-light-grey">All items are made entirely by hand.</span></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Store Section -->
+        <div class="ezalberry-row ezalberry-padding-64" id="store">
+            <div class="ezalberry-col l6 ezalberry-padding-large">
+                <h1 class="ezalberry-center">Store</h1><br>
+                <h4>Dog Clothes</h4>
+                <p class="ezalberry-text-grey">Assortment of designs available that are custom made to your pet</p><br>
+
+                <h4>Cat Clothes</h4>
+                <p class="ezalberry-text-grey">Custom fit to your feline</p><br>
+
+                <h4>Children's Hats</h4>
+                <p class="ezalberry-text-grey">Hats availble it multiple styles to fit your childs current size.</p><br>
+
+                <h4>Blankets</h4>
+                <p class="ezalberry-text-grey">Made to any size with the pattern and border of your choice.</p><br>
+
+                <h4>Your Design</h4>
+                <p class="ezalberry-text-grey">I will take on almost any project you can describe! I love to be creative and will create your vision.</p>
+            </div>
+
+            <div class="w3-col l6 w3-padding-large">
+                <img src="/Resources/Vertical.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:50%">
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Contact Section -->
+        <div class="ezalberry-container ezalberry-padding-64" id="contact">
+            <h1>Contact</h1><br>
+            <p>Please send us your request and we will reply with 24 hrs with pricing and timeline. We encourage all requests!</p>
+            <p> <b>Email: ezalberry@crochet.com</b></p>
+            <p class="ezalberry-text-blue-grey ezalberry-large"><b>Ezalberry Crochet, Tacoma, WA</b></p>
+        </div>
+
+        <!-- End page content -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="ezalberry-center ezalberry-light-grey ezalberry-padding-32">
+        <p>Powered by <a href="https://www.ezalberryschools.com/ezalberrycss/default.asp" title="ezalberry.CSS" target="_blank" class="ezalberry-hover-text-green">ezalberry.css</a></p>
+    </footer>
+
+</body>
+</html>

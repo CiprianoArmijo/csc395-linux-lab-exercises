@@ -119,51 +119,21 @@
   become: true
   hosts: ansible-lab-host3
   tasks:
-    - name: Installing nginx
+    - name: Install nginx
       apt: name=nginx state=latest
     - name: start nginx
       service:
           name: nginx
           state: started
 
-#- name: Custom Website
-  #hosts: ansible-lab-host3
-  #tasks:
-  #- name:  Custom Website
-    #become: true
-    #ansible.builtin.copy:
-      #src: files/index.nginx-debian.html
-      #dest: /var/www/html/index.nginx-debian.html
-      #owner: root
-      #group: root
-      #mode: '0644'
-
-- name: Install robertdebock.OpenVPN
-  hosts: ansible-lab-controller
-  become: true
-  gather_facts: yes
+- name: Add custom website
+  hosts: ansible-lab-host3
   tasks:
-    - name: create openvpn server
-      include_role:
-        name: robertdebock.openvpn
-      vars:
-        openvpn_role: "server"
-
-    - name: copy certificates and keys from the server to the client
-      ansible.builtin.copy:
-        src: /etc/openvpn/easy-rsa/pki/{{ item }}
-        dest: /etc/openvpn/client/{{ item | basename }}
-        mode: "0640"
-        remote_src: yes
-      loop:
-        - ca.crt
-        - issued/client.crt
-        - private/client.key
-        - ta.key
-
-    - name: create openvpn client
-      include_role:
-        name: robertdebock.openvpn
-      vars:
-        openvpn_role: "client"
-        openvpn_client_server: 40.112.169.56
+  - name:  Add custom website
+    become: yes
+    ansible.builtin.copy:
+      src: files/index.nginx-ezalberry.html
+      dest: /var/www/html/index.nginx-ezalberry.html
+      owner: root
+      group: root
+      mode: '0644'
