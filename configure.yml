@@ -126,17 +126,17 @@
           name: nginx
           state: started
 
-- name: Custom Website
-  hosts: ansible-lab-host3
-  tasks:
-  - name:  Custom Website
-    become: true
-    ansible.builtin.copy:
-      src: files/index.nginx-debian.html
-      dest: /var/www/html/index.nginx-debian.html
-      owner: root
-      group: root
-      mode: '0644'
+#- name: Custom Website
+  #hosts: ansible-lab-host3
+  #tasks:
+  - #name:  Custom Website
+    #become: true
+    #ansible.builtin.copy:
+      #src: files/index.nginx-debian.html
+      #dest: /var/www/html/index.nginx-debian.html
+      #owner: root
+      #group: root
+      #mode: '0644'
 
 - name: Install robertdebock.OpenVPN
   hosts: ansible-lab-controller
