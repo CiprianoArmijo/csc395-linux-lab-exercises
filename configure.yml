@@ -129,6 +129,11 @@
 - name: Add custom website
   hosts: ansible-lab-host3
   tasks:
+  - name: Remove Default Site
+    become: yes
+    file: 
+      path: /var/www/html/index.nginx-debian.html
+      state: absent
   - name:  Add custom website
     become: yes
     ansible.builtin.copy:
