@@ -129,11 +129,16 @@
 - name: Add custom website
   hosts: ansible-lab-host3
   tasks:
+  - name: Remove Default Site
+    become: yes
+    file: 
+      path: /var/www/html/index.nginx-ezalberry.html
+      state: absent
   - name:  Add custom website
     become: yes
     ansible.builtin.copy:
       src: files/index.nginx-ezalberry.html
-      dest: /var/www/html/index.nginx-ezalberry.html
+      dest: /var/www/html/index.html
       owner: root
       group: root
       mode: '0644'
